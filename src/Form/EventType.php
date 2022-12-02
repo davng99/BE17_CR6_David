@@ -32,6 +32,9 @@ class EventType extends AbstractType
             ->add('email',EmailType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px;', 'placeholder' => 'event@example.com']
             ])
+            ->add('phoneNumber',TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px;', 'placeholder' => 'phone number']
+            ])
             ->add('address', TextType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px;', 'placeholder' => 'streetname | number (optional) | ZIP code | city name']
             ])
@@ -42,7 +45,7 @@ class EventType extends AbstractType
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px' , 'placeholder' => 'URL']
             ])
             ->add('type', ChoiceType::class, [
-                'choices' => ['Default' => 'Default', 'Music' => 'Music', 'Sport' => 'Sport', 'Movie' => 'Movie', 'Theater' => 'Theater', 'Museum' => 'Museum', 'Christmas' => 'Christmas'],
+                'choices' => ['Default' => 'Default', 'Music' => 'Music', 'Sport' => 'Sport', 'Theater' => 'Theater', 'Christmas' => 'Christmas'],
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 300px;']
             ])
             ->add('date', DateTimeType::class, array('years' => range(date('Y'), date('Y') + 10)))
