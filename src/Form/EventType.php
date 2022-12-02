@@ -41,9 +41,6 @@ class EventType extends AbstractType
             ->add('url', TextType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px' , 'placeholder' => 'URL']
             ])
-            ->add('type', TextType::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']
-            ])
             ->add('type', ChoiceType::class, [
                 'choices' => ['Default' => 'Default', 'Music' => 'Music', 'Sport' => 'Sport', 'Movie' => 'Movie', 'Theater' => 'Theater', 'Museum' => 'Museum', 'Christmas' => 'Christmas'],
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 300px;']
