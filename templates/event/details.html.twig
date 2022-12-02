@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
+<h1 class="text-center mt-5">Event Details</h1>
+
 <div class="container mt-5">
-    <div class="card" style="width: 30rem;">
+    <div class="card mx-auto" style="width: 30rem;">
         <img class="card-img-top" src="{{event.image}}" alt="{{event.name}}" style="object-fit: cover;">
         <div class="card-body">
             <h5 class="card-title">{{event.name}}</h5>
@@ -11,10 +14,10 @@
             <p class="card-text">Address: {{event.address}}</p>
             <p class="card-text">Event Type: {{event.Type}}</p>
             <p class="card-text">Event Start: {{event.date | date('F j, Y, g:i a')}}</p>
-            <a class="card-text" href="{{event.url}}"><p>{{event.url}}</p></a>
+            <p>Event Link: <a class="card-text" href="{{event.url}}">{{event.url}}</a></p>
         </div>
     </div>
 
-    <a href="/" class="btn btn-danger mt-5">Back To Events</a>
+    <a href="/" class="btn btn-danger mt-5 mx-auto">Back To Events</a>
 </div>
 {% endblock %}
