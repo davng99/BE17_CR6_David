@@ -91,7 +91,7 @@ class EventController extends AbstractController
     public function delete($id, ManagerRegistry $doctrine)
     {
         $em = $doctrine->getManager();
-        $event= $doctrine->getRepository(Events::class)->find($id);
+        $event = $doctrine->getRepository(Events::class)->find($id);
         $em->remove($event);
 
         $em->flush();
@@ -102,4 +102,18 @@ class EventController extends AbstractController
 
         return $this->redirectToRoute('app_event');
     }
+
+      // =============================== filter (somehow not working with type column; it actually worked with other columns - capacity, name, etc...) ======================================
+
+      #[Route('/filter', name: 'filter_event')]
+      public function filter(ManagerRegistry $doctrine): Response
+      {
+          // $events = $doctrine->getRepository(Events::class)->findAll();
+          $events = $doctrine->getRepository(Events::class)->findBy(['type' => 'Sport']);
+          $events = $doctrine->getRepository(Events::class)->findBy(['capa' => 'Sport']);
+  
+          return $this->render('event/filter.html.twig', ['events' => $events]);
+      }
+  
+      // ============================= filter ======================================
 }
