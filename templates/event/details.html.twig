@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container mt-5">
+    <div class="card" style="width: 30rem;">
+        <img class="card-img-top" src="{{event.image}}" alt="{{event.name}}" style="object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title">{{event.name}}</h5>
+            <p class="card-text">{{event.description}}</p>
+            <p class="card-text">Capacity: {{event.capacity}}</p>
+            <p class="card-text">Mail: {{event.email}}</p>
+            <p class="card-text">Address: {{event.address}}</p>
+            <p class="card-text">Event Type: {{event.Type}}</p>
+            <p class="card-text">Event Start: {{event.date | date('F j, Y, g:i a')}}</p>
+            <a class="card-text" href="{{event.url}}"><p>{{event.url}}</p></a>
+        </div>
+    </div>
+
+    <a href="/" class="btn btn-danger mt-5">Back To Events</a>
+</div>
+{% endblock %}
