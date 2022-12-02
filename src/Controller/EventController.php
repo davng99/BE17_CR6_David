@@ -103,7 +103,7 @@ class EventController extends AbstractController
         return $this->redirectToRoute('app_event');
     }
 
-    // =============================== filter (somehow not working with event type column; it actually worked with other columns - capacity, name, etc...) ======================================
+    // =============================== filter  ======================================
 
     #[Route('/filter/{filter}', name: 'filter_event')]
     public function filter(ManagerRegistry $doctrine, $filter): Response
