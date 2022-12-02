@@ -105,12 +105,12 @@ class EventController extends AbstractController
 
     // =============================== filter (somehow not working with event type column; it actually worked with other columns - capacity, name, etc...) ======================================
 
-    #[Route('/filter', name: 'filter_event')]
-    public function filter(ManagerRegistry $doctrine): Response
+    #[Route('/filter/{filter}', name: 'filter_event')]
+    public function filter(ManagerRegistry $doctrine, $filter): Response
     {
-        //   $events = $doctrine->getRepository(Events::class)->findBy(['type' => 'Sport']);
-        $events = $doctrine->getRepository(Events::class)->findBy(['name' => 'Rebecca']);
-        $events = $doctrine->getRepository(Events::class)->findBy(['email' => 'wienticket@mail.com']);
+        $events = $doctrine->getRepository(Events::class)->findBy(['Type' => $filter]);
+        // $events = $doctrine->getRepository(Events::class)->findBy(['name' => 'Rebecca']);
+        // $events = $doctrine->getRepository(Events::class)->findBy(['email' => 'wienticket@mail.com']);
 
         return $this->render('event/filter.html.twig', ['events' => $events]);
     }
